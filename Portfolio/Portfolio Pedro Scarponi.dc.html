@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800;900&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+:root { --ac:#CDFF00; }
+html { scroll-behavior:smooth; }
+body { margin:0; background:#0B0B0B; font-family:'Archivo',sans-serif; -webkit-font-smoothing:antialiased; }
+a { color:inherit; text-decoration:none; }
+a:hover { color:var(--ac); }
+::selection { background:var(--ac); color:#0B0B0B; }
+@keyframes heroIn { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
+</style>
+</helmet>
+<div style="background:#0B0B0B;color:#F5F5F1;overflow-x:hidden" data-screen-label="Portfolio">
+
+<nav style="position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 48px;transition:background .35s ease, color .35s ease, border-color .35s ease, padding .35s ease;background:{{ navBg }};color:{{ navFg }};border-bottom:1px solid {{ navBorder }};backdrop-filter:blur(8px)">
+  <a href="#hero" style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:15px;letter-spacing:.06em">PS_/ <span style="font-weight:400;opacity:.6">scarponi.dev</span></a>
+  <div style="display:flex;align-items:center;gap:32px;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.04em">
+    <a href="#skills" style="opacity:.85">Skills</a>
+    <a href="#experiencia" style="opacity:.85">Experiencia</a>
+    <a href="#formacion" style="opacity:.85">Formación</a>
+    <a href="#contacto" style-hover="background:var(--ac);color:#0B0B0B;border-color:var(--ac)" style="border:1px solid currentColor;padding:8px 18px;border-radius:2px;transition:all .25s ease">Contactar</a>
+  </div>
+</nav>
+
+<header id="hero" style="min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:140px 48px 72px;position:relative;background:radial-gradient(1200px 600px at 85% 10%, rgba(205,255,0,.09), transparent 60%), #0B0B0B" data-screen-label="Hero">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--ac);letter-spacing:.12em;margin-bottom:28px;animation:heroIn .7s ease both">.NET DEVELOPER — MAR DEL PLATA, ARGENTINA</div>
+  <h1 style="margin:0;font-weight:900;font-size:clamp(56px,10.5vw,168px);line-height:.92;letter-spacing:-.03em;text-transform:uppercase;animation:heroIn .7s .1s ease both">
+    <span style="display: block">Desarrollador</span>
+    <span style="display:block">De sistemas</span>
+    <span style="display:block;color:var(--ac)">.NET CORE</span>
+    <span style="display:block">ARGENTINO</span>
+  </h1>
+  <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:32px;margin-top:48px;animation:heroIn .7s .22s ease both">
+    <p style="margin:0;max-width:560px;font-size:18px;line-height:1.55;color:#B8B8B2">
+      <strong style="color:#F5F5F1">Pedro Ignacio Scarponi</strong> — 5 años de backend en .NET: C#, Entity Framework, Azure y Oracle sobre soluciones híbridas. IA y desarrollo agéntico en el día a día. Inglés avanzado (Cambridge).
+    </p>
+    <div style="display:flex;gap:16px">
+      <a href="#skills" style="background:var(--ac);color:#0B0B0B;font-weight:800;font-size:15px;padding:16px 32px;border-radius:2px;transition:transform .25s ease, box-shadow .25s ease;display:inline-block" style-hover="transform:translateY(-4px);box-shadow:0 10px 30px rgba(205,255,0,.35)">Ver skills ↓</a>
+      <a href="#contacto" style="border:1px solid #3A3A36;color:#F5F5F1;font-weight:600;font-size:15px;padding:16px 32px;border-radius:2px;transition:all .25s ease;display:inline-block" style-hover="border-color:var(--ac);color:var(--ac)">Contactar</a>
+    </div>
+  </div>
+</header>
+
+<section id="skills" style="background:#F5F5F1;color:#0B0B0B;padding:96px 48px 120px" data-screen-label="Skills">
+  <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:56px">
+    <h2 style="margin:0;font-weight:900;font-size:clamp(40px,6vw,88px);letter-spacing:-.025em;text-transform:uppercase;line-height:.95">Stack<br>técnico</h2>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:14px;color:#6B6B66">01 — 04 / lo que uso todos los días</div>
+  </div>
+  <div style="display:grid;gap:16px">
+    <sc-for list="{{ skillBlocks }}" as="b" hint-placeholder-count="4">
+      <div data-reveal="" style="position:relative;overflow:hidden;border-radius:4px;background:{{ b.bg }};color:#F5F5F1;padding:44px 48px;display:grid;grid-template-columns:minmax(120px,180px) 1fr;gap:32px;align-items:start;transition:transform .35s ease, box-shadow .35s ease;cursor:default" style-hover="transform:scale(1.012);box-shadow:0 24px 60px rgba(11,11,11,.35)">
+        <div style="position:absolute;right:-20px;bottom:-60px;font-weight:900;font-size:260px;line-height:1;letter-spacing:-.05em;color:rgba(245,245,241,.06);pointer-events:none;user-select:none">{{ b.num }}</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:52px;color:var(--ac)">{{ b.num }}</div>
+        <div style="position:relative">
+          <h3 style="margin:0 0 10px;font-weight:900;font-size:clamp(26px,3.2vw,44px);text-transform:uppercase;letter-spacing:-.01em">{{ b.title }}</h3>
+          <p style="margin:0 0 22px;color:rgba(245,245,241,.65);font-size:16px;line-height:1.5;max-width:640px">{{ b.desc }}</p>
+          <div style="display:flex;flex-wrap:wrap;gap:10px">
+            <sc-for list="{{ b.tags }}" as="t" hint-placeholder-count="5">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:13px;padding:7px 14px;border:1px solid rgba(245,245,241,.25);border-radius:2px;transition:all .2s ease" style-hover="border-color:var(--ac);color:var(--ac)">{{ t }}</span>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section style="background:#0B0B0B;color:#F5F5F1;padding:110px 48px;border-top:1px solid #1D1D1A;border-bottom:1px solid #1D1D1A" data-screen-label="Stats">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:48px">
+    <sc-for list="{{ stats }}" as="s" hint-placeholder-count="4">
+      <div data-reveal="" style="border-left:1px solid #2A2A26;padding-left:28px">
+        <div style="font-weight:900;font-size:clamp(64px,8vw,120px);line-height:1;letter-spacing:-.03em;color:var(--ac)">{{ s.big }}</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:14px;color:#8F8F88;margin-top:14px;line-height:1.5">{{ s.label }}</div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section id="experiencia" style="background:#F5F5F1;color:#0B0B0B;padding:110px 48px" data-screen-label="Experiencia">
+  <div style="display:grid;grid-template-columns:minmax(240px,1fr) 2fr;gap:64px;align-items:start">
+    <div style="position:sticky;top:110px">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:14px;color:#6B6B66;margin-bottom:20px">05 / Experiencia</div>
+      <h2 style="margin:0 0 28px;font-weight:900;font-size:clamp(40px,5vw,72px);letter-spacing:-.025em;text-transform:uppercase;line-height:.95">EMMSA</h2>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:14px;line-height:2;color:#3A3A36">
+        .NET Developer<br>feb 2021 — actualidad<br>Mar del Plata, Argentina
+      </div>
+      <div style="margin-top:24px;display:inline-block;background:#0B0B0B;color:var(--ac);font-family:'JetBrains Mono',monospace;font-size:13px;padding:8px 14px;border-radius:2px">5 años en el mismo producto</div>
+    </div>
+    <div>
+      <p style="margin:0 0 40px;font-size:19px;line-height:1.6;color:#3A3A36;max-width:680px">Desarrollo backend en .NET con foco en Entity Framework, arquitectura MVC y Azure, sobre soluciones híbridas que integran distintas versiones y tecnologías .NET.</p>
+      <div style="display:grid;gap:0">
+        <sc-for list="{{ tasks }}" as="t" hint-placeholder-count="6">
+          <div data-reveal="" style="display:grid;grid-template-columns:56px 1fr;gap:20px;padding:26px 0;border-top:1px solid #DDDDD6;transition:background .25s ease" style-hover="background:rgba(205,255,0,.14)">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#9A9A93;padding-top:3px">{{ t.k }}</div>
+            <div>
+              <div style="font-weight:800;font-size:18px;margin-bottom:6px">{{ t.title }}</div>
+              <div style="font-size:15px;line-height:1.55;color:#5A5A54">{{ t.body }}</div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <p style="margin:40px 0 0;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.7;color:#8F8F88;border-top:1px solid #DDDDD6;padding-top:24px">Previo: atención al cliente y tareas operativas en Mar del Plata, y dos temporadas de Work and Travel en Boston, EE.UU. (2018/2019).</p>
+    </div>
+  </div>
+</section>
+
+<section id="formacion" style="background:var(--ac);color:#0B0B0B;padding:110px 48px" data-screen-label="Formación IA">
+  <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:20px">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.08em">06 / FORMACIÓN COMPLEMENTARIA — JUNIO 2026</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700">MoureDev</div>
+  </div>
+  <h2 style="margin:0 0 64px;font-weight:900;font-size:clamp(44px,7vw,110px);letter-spacing:-.03em;text-transform:uppercase;line-height:.92">Desarrollo con IA,<br>Agentes y SDD</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+    <sc-for list="{{ iaTopics }}" as="t" hint-placeholder-count="4">
+      <div data-reveal="" style="background:#0B0B0B;color:#F5F5F1;border-radius:4px;padding:32px 28px;min-height:220px;display:flex;flex-direction:column;gap:14px;transition:transform .3s ease" style-hover="transform:translateY(-8px)">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ac)">{{ t.tag }}</div>
+        <div style="font-weight:900;font-size:22px;text-transform:uppercase;letter-spacing:-.01em">{{ t.title }}</div>
+        <div style="font-size:14px;line-height:1.55;color:#A8A8A1">{{ t.body }}</div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section style="background:#F5F5F1;color:#0B0B0B;padding:90px 48px" data-screen-label="Educación">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:14px;color:#6B6B66;margin-bottom:36px">07 / Educación</div>
+  <div>
+    <sc-for list="{{ education }}" as="e" hint-placeholder-count="4">
+      <div style="display:grid;grid-template-columns:2fr 2fr 1fr 1fr;gap:24px;align-items:baseline;padding:22px 0;border-top:1px solid #DDDDD6;font-size:15px">
+        <div style="font-weight:800;font-size:17px">{{ e.titulo }}</div>
+        <div style="color:#5A5A54">{{ e.inst }}</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#8F8F88">{{ e.periodo }}</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#8F8F88;text-align:right">{{ e.estado }}</div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<footer id="contacto" style="background:#0B0B0B;color:#F5F5F1;padding:120px 48px 48px" data-screen-label="Contacto">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--ac);letter-spacing:.1em;margin-bottom:24px">08 / CONTACTO — DISPONIBILIDAD COMPLETA</div>
+  <h2 style="margin:0 0 56px;font-weight:900;font-size:clamp(56px,11vw,180px);letter-spacing:-.035em;text-transform:uppercase;line-height:.9">¿Hablamos?</h2>
+  <div style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:80px">
+    <a href="mailto:pscarponi98@gmail.com" style="background:var(--ac);color:#0B0B0B;font-weight:800;font-size:16px;padding:18px 36px;border-radius:2px;transition:transform .25s ease, box-shadow .25s ease" style-hover="transform:translateY(-4px);box-shadow:0 10px 30px rgba(205,255,0,.35);color:#0B0B0B">pscarponi98@gmail.com</a>
+    <sc-if value="{{ showPhone }}" hint-placeholder-val="{{ true }}">
+      <a href="tel:+542234565269" style="border:1px solid #3A3A36;font-family:'JetBrains Mono',monospace;font-size:15px;padding:18px 32px;border-radius:2px;transition:all .25s ease;display:inline-flex;align-items:center" style-hover="border-color:var(--ac);color:var(--ac)">+54 223 456 5269</a>
+    </sc-if>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;border-top:1px solid #1D1D1A;padding-top:28px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#8F8F88">
+    <div>Pedro Ignacio Scarponi — .NET Developer</div>
+    <div>La Perla, Mar del Plata, Argentina · Movilidad propia</div>
+    <div>Español nativo · Inglés avanzado (Cambridge)</div>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;accent&quot;: { &quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#CDFF00&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#CDFF00&quot;, &quot;#2E5BFF&quot;, &quot;#FF5C1F&quot;], &quot;section&quot;: &quot;Estilo&quot; },
+  &quot;showPhone&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Contacto&quot; }
+}">
+class Component extends DCLogic {
+  state = { scrolled: false };
+  componentDidMount() {
+    this.onScroll = () => {
+      const s = window.scrollY > 40;
+      if (s !== this.state.scrolled) this.setState({ scrolled: s });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.applyAccent();
+    this.io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; this.io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('[data-reveal]').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = (el.style.transition ? el.style.transition + ', ' : '') + 'opacity .6s ease, transform .6s ease';
+      this.io.observe(el);
+    });
+  }
+  componentDidUpdate() { this.applyAccent(); }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+    if (this.io) this.io.disconnect();
+  }
+  applyAccent() {
+    document.documentElement.style.setProperty('--ac', this.props.accent ?? '#CDFF00');
+  }
+  renderVals() {
+    const sc = this.state.scrolled;
+    return {
+      navBg: sc ? 'rgba(245,245,241,.92)' : 'rgba(11,11,11,0)',
+      navFg: sc ? '#0B0B0B' : '#F5F5F1',
+      navBorder: sc ? 'rgba(11,11,11,.12)' : 'rgba(245,245,241,0)',
+      showPhone: this.props.showPhone ?? true,
+      skillBlocks: [
+        { num: '01', title: 'Backend', desc: 'El núcleo: servicios .NET híbridos que integran Framework y Core en un mismo repositorio, con dependencias vía NuGet y builds MSBuild multi-target.', tags: ['C#', '.NET Framework', '.NET Core', 'Entity Framework', 'Arquitectura MVC'], bg: 'linear-gradient(115deg,#101610 0%,#0B0B0B 55%,#16200A 100%)' },
+        { num: '02', title: 'Cloud & DevOps', desc: 'Azure y Azure DevOps como base de trabajo diaria: tickets, pipelines y despliegue, con Docker para entornos de desarrollo.', tags: ['Azure', 'Azure DevOps', 'Docker', 'Git', 'NuGet', 'MSBuild'], bg: 'linear-gradient(115deg,#0C1218 0%,#0B0B0B 55%,#0E1A22 100%)' },
+        { num: '03', title: 'Bases de Datos', desc: 'Diseño, consulta y optimización con SQL. Diagnóstico de stored procedures Oracle y resolución de bugs de datos en producción con acceso de solo lectura.', tags: ['SQL', 'Oracle', 'ODP.NET', 'PL-SQL'], bg: 'linear-gradient(115deg,#181008 0%,#0B0B0B 55%,#201608 100%)' },
+        { num: '04', title: 'IA & Agentes', desc: 'IA aplicada al desarrollo real: codificación agéntica, reglas persistentes, Skills, MCP y Spec-Driven Development para maximizar calidad y determinabilidad.', tags: ['Claude', 'ChatGPT', 'Cursor / Open Code / Copilot', 'SDD', 'MCP', 'AGENTS.md', 'Multiagente'], bg: 'linear-gradient(115deg,#151A08 0%,#0B0B0B 50%,#1E260A 100%)' }
+      ],
+      stats: [
+        { big: '5', label: 'años de experiencia .NET — desde febrero 2021' },
+        { big: '2021', label: 'en EMMSA, del mantenimiento a la arquitectura' },
+        { big: 'EN', label: 'inglés avanzado — Instituto Cambridge de Cultura Inglesa' },
+        { big: 'MDQ', label: 'Mar del Plata, Argentina — disponibilidad completa' }
+      ],
+      tasks: [
+        { k: '/01', title: 'Migraciones .NET', body: 'Migración y actualización de proyectos entre distintas versiones y tecnologías de .NET, asegurando compatibilidad y continuidad de los servicios.' },
+        { k: '/02', title: 'Datos con Entity Framework', body: 'Acceso y manipulación de datos con EF, junto con consultas SQL directas para casos de optimización específicos.' },
+        { k: '/03', title: 'Oracle en producción', body: 'Integración vía ODP.NET / PL-SQL: diagnóstico de stored procedures y resolución de bugs de datos en producción con acceso restringido a solo lectura.' },
+        { k: '/04', title: 'Documentos server-side', body: 'Templates dinámicos de PDF con Handlebars.NET e IronPDF, incluyendo maquetado CSS para impresión (paginación, layout A4).' },
+        { k: '/05', title: 'Análisis funcional y triage', body: 'Traducción de tickets de negocio (Azure DevOps) en cambios de arquitectura concretos, patrones reutilizables y detección de casos borde.' },
+        { k: '/06', title: 'APIs, Docker e IA aplicada', body: 'Testing y consumo de APIs con Postman, Docker para entornos, y herramientas de IA (Claude, ChatGPT) para acelerar desarrollo, documentación y revisión de código.' }
+      ],
+      iaTopics: [
+        { tag: '/orquestación', title: 'Orquestación y Agentes', body: 'Implementación e integración de editores e interfaces de codificación agéntica: Open Code, Claude Code, Cursor, VS Code Copilot.' },
+        { tag: '/harness', title: 'Harness Engineering', body: 'Reglas persistentes (AGENTS.md), Skills personalizadas, automatización con comandos y conexión a contexto externo vía MCP.' },
+        { tag: '/sdd', title: 'Spec-Driven Development', body: 'Flujo guiado por especificaciones: constitución, features, planes de ejecución y criterios de aceptación autónomos.' },
+        { tag: '/flujos', title: 'Flujos Agénticos', body: 'Manejo de sesiones, higiene y compactación de contexto, y arquitectura multiagente: orquestador y subagentes.' }
+      ],
+      education: [
+        { titulo: 'Ingeniería en Sistemas', inst: 'UNICEN, Tandil', periodo: '2017', estado: 'cursada parcial' },
+        { titulo: 'Licenciatura en Informática', inst: 'Universidad Atlántida Argentina', periodo: '2020 — 2023', estado: 'no finalizada' },
+        { titulo: 'Estudios Superiores de Inglés', inst: 'Instituto Cambridge de Cultura Inglesa', periodo: '—', estado: 'certificado · avanzado' },
+        { titulo: 'Educación Secundaria', inst: 'Colegio Instituto Peralta Ramos', periodo: 'hasta 2016', estado: 'completa' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
